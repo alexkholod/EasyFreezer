@@ -1,0 +1,45 @@
+h1, h2 {
+   margin: 20px auto 10px;
+   color: #0084CA;
+   text-align: center;
+}
+
+p {
+   color: #0084CA;
+   text-align: center;
+}
+
+table {
+   margin: 0 auto;
+   width: 640px;
+   border: 2px solid grey;
+   border-collapse: collapse;
+   text-align: center;
+}
+
+td, th {
+   border: 2px solid grey; 
+   padding: 2px;
+}
+
+.form-add {
+   margin: auto;
+   width: 40%;
+}
+
+.link {
+  text-align: center;
+  font-color: #0084CA;
+}
+
+.footer {
+  margin: 10px 0;
+  padding: 5px;
+  background-color: #e2dede;
+}
+
+.header {
+  margin: 10px 0;
+  padding: 5px;
+  background-color: #e2dede;
+}
