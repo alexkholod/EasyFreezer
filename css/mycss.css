@@ -11,7 +11,7 @@ p {
 
 table {
    margin: 0 auto;
-   width: 640px;
+   width: 100%;
    border: 2px solid grey;
    border-collapse: collapse;
    text-align: center;
@@ -24,7 +24,7 @@ td, th {
 
 .form-add {
    margin: auto;
-   width: 40%;
+   width: 100%;
 }
 
 .link {
