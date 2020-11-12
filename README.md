@@ -1,5 +1,6 @@
 # EasyFreezer
 it's my first PHP-program. For managing food in the freezer.
+PHP/CSS/SQLite
 <hr>
 Version 1.0 is able to:
 <ul>
