@@ -63,18 +63,20 @@
 	        <p>Куда: <input type="radio" name="section" value="top"/>Верх
 	        <input type="radio" name="section" value="bottom"/>Низ</p>
 	        <p>Сколько: <input type="text" name="count" /></p>
-	        <p><input type="submit" value="Добавить" /></p>
+	        <p><input type="submit" value="Добавить" name="addProduct" /></p>
           </form>
       
           <h2>Достать размораживаться:</h2>
           <form action="delete.php" method="post" class="form-add">
             <p>Введите "id": <input type="text" name="id" /></p>
-            <p><input type="submit" value="Удалить" /></p>
+            <p><input type="submit" value="Удалить" name="deleteProduct" /></p>
           </form>
     </div>
     <div class="footer">
         <p>EasyFreezer by <a href="https://t.me/alexanderkholod">@alexkholod</a></p>
-        <p>Версия <?php echo "$version" ?></p>
+        <p>Версия <?php if (isset($version)) {
+                echo "$version";
+            } ?></p>
     </div>
   </body>
 </html>
