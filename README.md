@@ -10,3 +10,9 @@ Version 1.0 is able to:
 </ul>
 <hr>
 Feedback: https://t.me/alexanderkholod
+<hr>
+Update 1.1 / 16.11.2020
+<ul>
+<li>Sanitize and validate functions (not all)</li>
+<li>Some trivial improvements </li>
+</ul>
