@@ -16,3 +16,8 @@ Update 1.1 / 16.11.2020
 <li>Sanitize and validate functions (not all)</li>
 <li>Some trivial improvements </li>
 </ul>
+<hr>
+Update 1.2 / 19.11.2020
+<ul>
+<li>Delete operation by GET-method</li>
+</ul>

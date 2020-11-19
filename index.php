@@ -15,48 +15,53 @@
     <div>
     	<h2>-- Верхний отдел --</h2>
 
-                <?php 
+                <?php
                     $db = new SQLite3('freezer.db');
-                    $res = $db->query('SELECT id, product, count FROM freezer WHERE section = "top"');                        
-                    $table = "<table>
-                    <td>id</td><td>Что</td><td>Сколько</td>";
-
-                    while ($row = $res->fetchArray()) {               //цикл        
-                    $table .= "<tr>";
-                    $table .= "<td >".$row['id']."</td>";
-                    $table .= "<td >".$row['product']."</td>";
-                    $table .= "<td >".$row['count']."</td>";
-                    $table .= "</tr>";
-                     }
-                    $table .= "</table>";
-                    echo $table; 
-                    $db->close();          // выводится
-                    //echo "{$row['id']} {$row['product']} {$row['count']} <br>";
+//удаление через GET-запрос.
+                    if(isset($_GET['del'])) {
+                        $id = (int) $_GET['del'];
+                        $db->exec('DELETE FROM freezer WHERE (id = '.$id.')');
+                    }
+                    $res = $db->query('SELECT id, product, count FROM freezer WHERE section = "top"');
                 ?>
+        <table>
+            <td>id</td><td>Что</td><td>Сколько</td><td>Действие</td>
+            <?php while ($row = $res->fetchArray()) { ?>
+                <tr>
+                    <td><?= $row['id'];?></td>
+                    <td><?= $row['product'];?></td>
+                    <td><?= $row['count'];?></td>
+                    <td><a href="?del=<?= $row['id'];?>">Достать</a></td>
+                </tr>
+                <?php
+            }
+            $db->close();          // выводится
+            ?>
+        </table>
     </div>
     <div>
     	<h2>-- Нижний отдел --</h2>
     	<?php 
-                    include 'config.php';
-                    $db = new SQLite3('freezer.db');
-                    $res = $db->query('SELECT id, product, count FROM freezer WHERE section = "bottom"');                        
-                    $table = "<table>
-                    <td>id</td><td>Что</td><td>Сколько</td>";
-
-                    while ($row = $res->fetchArray()) {                       //цикл
-                    $table .= "<tr>";
-                    $table .= "<td >".$row['id']."</td>";
-                    $table .= "<td >".$row['product']."</td>";
-                    $table .= "<td >".$row['count']."</td>";
-                    $table .= "</tr>";
-                     }
-                    $table .= "</table>";
-                    echo $table; 
-                    $db->close();           // выводится
-                    //echo "{$row['id']} {$row['product']} {$row['count']} <br>";
+        include 'config.php';
+        $db = new SQLite3('freezer.db');
+        $res = $db->query('SELECT id, product, count FROM freezer WHERE section = "bottom"');
+        ?>
+            <table>
+                <td>id</td><td>Что</td><td>Сколько</td><td>Действие</td>
+                <?php while ($row = $res->fetchArray()) { ?>
+                    <tr>
+                        <td><?= $row['id'];?></td>
+                        <td><?= $row['product'];?></td>
+                        <td><?= $row['count'];?></td>
+                        <td><a href="?del=<?= $row['id'];?>">Достать</a></td>
+                    </tr>
+                <?php
+                }
+                $db->close();          // выводится
                 ?>
+            </table>
     </div>
-  
+    <div>
     	  <h2>Положить в морозилочку:</h2>
     	  <form action="add.php" method="post" class="form-add">
 	 	    <p>Что: <input type="text" name="product" /></p>
@@ -66,11 +71,13 @@
 	        <p><input type="submit" value="Добавить" name="addProduct" /></p>
           </form>
       
+<!-- //Реализовано удаление через GET-запрос / 19.11.2020
           <h2>Достать размораживаться:</h2>
           <form action="delete.php" method="post" class="form-add">
             <p>Введите "id": <input type="text" name="id" /></p>
             <p><input type="submit" value="Удалить" name="deleteProduct" /></p>
           </form>
+-->
     </div>
     <div class="footer">
         <p>EasyFreezer by <a href="https://t.me/alexanderkholod">@alexkholod</a></p>
