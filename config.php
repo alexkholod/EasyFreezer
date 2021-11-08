@@ -1,3 +1,3 @@
 <?php
 define('DB_NAME', 'freezer.db');
-$version = "1.2 от 19.11.2020";
+$version = "1.3 от 8.11.2021";

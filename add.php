@@ -1,4 +1,13 @@
 <?php
+session_start();
+if($_GET['do'] == 'logout'){
+ unset($_SESSION['admin']);
+ session_destroy();
+}
+ if($_SESSION['admin'] != "admin"){
+ header("Location: login.php");
+exit;
+}
       if (isset($_POST['addProduct'])) {
           if ($_POST['product'] != "") {
               $product = filter_var($_POST['product'], FILTER_SANITIZE_STRING);
@@ -70,6 +79,9 @@
           if (isset($version)) {
               echo "$version";
           } ?></p>
+          <div class="link">
+            <a href="index.php?do=logout">Выйти</a>
+          </div>
   </div>
   </body>
 </html>

@@ -1,5 +1,15 @@
-
 <!DOCTYPE html>
+<?php
+session_start();
+if($_GET['do'] == 'logout'){
+unset($_SESSION['admin']);
+session_destroy();
+}
+ if($_SESSION['admin'] != "admin"){
+ header("Location: login.php");
+exit;
+}
+?>
 <html lang="ru">
   <head>
     <title>Морозилочка</title>
@@ -41,7 +51,7 @@
     </div>
     <div>
     	<h2>-- Нижний отдел --</h2>
-    	<?php 
+    	<?php
         include 'config.php';
         $db = new SQLite3('freezer.db');
         $res = $db->query('SELECT id, product, count FROM freezer WHERE section = "bottom"');
@@ -70,7 +80,7 @@
 	        <p>Сколько: <input type="text" name="count" /></p>
 	        <p><input type="submit" value="Добавить" name="addProduct" /></p>
           </form>
-      
+
 <!-- //Реализовано удаление через GET-запрос / 19.11.2020
           <h2>Достать размораживаться:</h2>
           <form action="delete.php" method="post" class="form-add">
@@ -79,11 +89,15 @@
           </form>
 -->
     </div>
+
     <div class="footer">
         <p>EasyFreezer by <a href="https://t.me/alexanderkholod">@alexkholod</a></p>
         <p>Версия <?php if (isset($version)) {
                 echo "$version";
             } ?></p>
+            <div class="link">
+              <a href="index.php?do=logout">Выйти</a>
+            </div>
     </div>
   </body>
 </html>

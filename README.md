@@ -21,3 +21,8 @@ Update 1.2 / 19.11.2020
 <ul>
 <li>Delete operation by GET-method</li>
 </ul>
+<hr>
+Update 1.3 / 8.11.2021
+<ul>
+<li>Simple authorization for me</li>
+</ul>
